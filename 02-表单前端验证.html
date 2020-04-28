@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<form action="#">
+			账号:<input type="text" id="names" value="" /><br>
+			密码:<input type="text" id="pwd" value="" /><br>
+			邮箱:<input type="text" id="email" value="" /><br>
+			号码:<input type="text" id="phone" value="" /><br>
+			<button>登录</button>
+		</form>
+		<script type="text/javascript">
+			pwd.onchange=function() {
+				let reg=/[\da-zA-Z]*\d+[a-zA-Z]+[\da-zA-Z]/
+				//检测字符串是否符合格式，返回布尔值
+				let resul=reg.test(pwd.value)
+				if(resul){
+					pwd.style.border="1px green solid"
+				}
+				else{
+					pwd.style.border="1px red solid"
+				}
+			}
+			email.onchange=function() {
+				let reg=/^[A-Za-z0-9\u4e00-\u9fa5]+@[a-zA-Z0-9_-]+(\.[a-zA-Z0-9_-]+)+$/
+				let resul=reg.test(email.value)
+				if(resul){
+					email.style.border="1px green solid"
+				}
+				else{
+					email.style.border="1px red solid"
+				}
+			}
+		</script>
+	</body>
+</html>
