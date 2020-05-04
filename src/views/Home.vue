@@ -1,18 +1,33 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+	  <!-- nav -->
+    <HomeNav></HomeNav>
+	<!-- 搜索框 -->
+	<HomeSerach></HomeSerach>
+	<!-- 轮播 -->
+	<HomeCarousel></HomeCarousel>
+	<!-- 轮播后的图标 -->
+	<Homeicon></Homeicon>
+	<!-- 展示商品 -->
+	<ShoppingShow></ShoppingShow>
+	<!-- 底部信息 -->
+	<BottomInfo></BottomInfo>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
 export default {
   name: 'Home',
   components: {
-    HelloWorld
+    "HomeNav":()=> import("../components/MyHome/HomeNav.vue"),
+	"HomeSerach":()=> import("../components/MyHome/HomeSerach.vue"),
+	"HomeCarousel":()=> import("../components/MyHome/HomeCarousel.vue"),
+	"Homeicon":()=> import("../components/MyHome/Homeicon.vue"),
+	"ShoppingShow":()=> import("../components/MyHome/ShoppingShow.vue"),
+	"BottomInfo":()=> import("../components/MyHome/BottomInfo.vue")
   }
 }
 </script>
+<style>
+
+</style>
