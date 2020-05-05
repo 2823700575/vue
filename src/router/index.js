@@ -18,8 +18,12 @@ Vue.use(VueRouter)
     path: '/mine',
     name: 'Mine',
     component: Mine
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: ()=>import("@/views/Loginregister/Loginregister.vue")
   }
- 
 ]
 
 const router = new VueRouter({
