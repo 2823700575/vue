@@ -6,7 +6,12 @@ Vue.use(VueRouter)
 
   const routes = [
   {
-    path: '/',
+	path: '/',
+	name: 'Home',
+	component: ()=>import ("../views/Home.vue")
+  },
+  {
+    path: '/cart',
     name: 'Cart',
     component: Cart
   },{
