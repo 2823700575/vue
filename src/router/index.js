@@ -13,7 +13,15 @@ Vue.use(VueRouter)
   {
     path: '/cart',
     name: 'Cart',
-    component: Cart
+    component: Cart,
+	beforeEnter(to,form,next){
+		let flag=window.localStorage.length
+		if(flag){
+			next()
+		}else{
+			next("/login")
+		}
+	}
   },{
     path: '/mine',
     name: 'Mine',

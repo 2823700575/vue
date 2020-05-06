@@ -2,7 +2,7 @@
 	<div>
 		<div class="lrbox">
 		<keep-alive>
-			<component :is="loginregiste"></component>
+			<component :is="loginregiste" @myclick="myclick"></component>
 		</keep-alive>
 		<div class="btm">
 			<button @click="login">登陆</button>
@@ -25,6 +25,9 @@
 			},
 			register(){
 				this.loginregiste="Register"
+			},
+			myclick(){
+				this.loginregiste="Login"
 			}
 		},
 		components:{
