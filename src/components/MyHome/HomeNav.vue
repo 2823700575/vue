@@ -1,8 +1,8 @@
 <template>
   <div class="homenav">
 	<el-menu :default-active="activeIndex" class="el-menu-demo myset" mode="horizontal" @select="handleSelect">
-	  <el-menu-item index="1">登录</el-menu-item>
-	  <el-menu-item index="2">注册</el-menu-item>
+	  <el-menu-item index="1">{{this.$store.state.vuexB.login}}</el-menu-item>
+	  <el-menu-item index="2">{{this.$store.state.vuexB.register}}</el-menu-item>
 	  <el-submenu index="3">
 	    <template slot="title">我的好乐买</template>
 	    <el-menu-item index="3-1">我的订单</el-menu-item>
@@ -34,6 +34,7 @@
 </template>
 
 <script>
+	import axios from "axios"
 export default {
     data() {
           return {
@@ -49,9 +50,48 @@ export default {
 		},
         methods: {
           handleSelect(key, keyPath) {
-            console.log(key, keyPath);
+			  let flag=window.localStorage.getItem("tel")
+			  // console.log(typeof flag,flag)
+			  //如果登陆过，就展示用户信息，做不同的功能
+			  if(flag=="sussessful"){
+				  if(key==1){
+				  	this.$router.push({path:"/mine"})
+				  }else if(key==2){
+				  	let url="http://localhost:7001/outlogin"
+				  	axios.get(url)
+				  	.then((res)=>{
+				  		if(res.data.code==2001){
+							window.localStorage.setItem("tel",null)
+							this.$store.commit("vuexB/myb")
+							alert("退出成功")
+						}
+				  	})
+				  }
+			  }else{
+				  if(key==1){
+				  	this.$router.push({path:"/login"})
+				  }else if(key==2){
+				  	this.$router.push({path:"/login",query:{key:key}})//params传参页面刷新数据就不在了
+				  }
+			  }
+            
           }
-        }
+        },
+		mounted(){
+			//页面一加载，如果登陆过了就直接展示账号，解决一刷新数据变为仓库原始值的问题
+			let flag=window.localStorage.getItem("tel")
+			if(flag=="sussessful"){
+				//如果注册过就请求后端缓存的信息过来
+				let url="http://localhost:7001/getuserinfo"
+				axios.get(url)
+				.then((res)=>{
+					if(res.data.code==2002){
+						// console.log(res.data.info)
+						this.$store.commit("vuexB/myc",{n:res.data.info})
+					}
+				})
+			}
+		}
 }
 </script>
 

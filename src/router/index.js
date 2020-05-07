@@ -20,9 +20,9 @@ Vue.use(VueRouter)
     path: '/cart',
     name: 'Cart',
     component: Cart,
-	beforeEnter(to,form,next){
-		let flag=window.localStorage.length
-		if(flag){
+	beforeEnter(to,form,next){//局部导航守卫
+		let flag=window.localStorage.getItem("tel")
+		if(flag=="sussessful"){
 			next()
 		}else{
 			next("/login")
