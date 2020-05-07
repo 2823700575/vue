@@ -5,10 +5,18 @@ Vue.use(Vuex)
 let ModuleA = {
 	namespaced: true,
 	state: {
-
+		nav_erweima1:"http://0.js.al.okbuycdn.com/resources/images/v6/common/appqcode_2.png",
+		nav_erweima2:"http://0.js.al.okbuycdn.com/resources/images/v6/common/weixinqcode.png",
+		productShow_data:"",
+		productShow_sqldata:""
 	},
 	mutations: {
-
+		productShow_datafunction(state,obj){
+			state.productShow_data=obj.mybrand
+		},
+		productShow_sqldatafun(state,obj){
+			state.productShow_sqldata=obj.dataarr
+		}
 	},
 	actions: {
 

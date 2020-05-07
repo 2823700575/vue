@@ -4,7 +4,7 @@
 			<img src="http://i.okaybuy.cn/static/f90cee3a14cc1ea4c296108b1a68d758.png" alt="">
 		</div>
 		<div class="showinfo">
-			<a href="#" class="showimg" v-for="(item,index) in showdata" :key="index">
+			<a href="#" class="showimg" v-for="(item,index) in showdata" :key="index" v-on:click="getbrand(item.brand)">
 				<img :src="item.imgsrc" alt="">
 				<div class="showword">
 					<div class="show_word">{{item.word1}}</div>
@@ -14,6 +14,7 @@
 				</div>
 			</a>
 		</div>
+		
 	</div>
 </template>
 
@@ -32,6 +33,18 @@
 			.then((result)=>{
 				this.showdata =  result.data;
 			})
+		},
+		methods:{
+			// brand :品牌
+			getbrand(shoppingbrand){
+				// console.log(shoppingbrand,"shopping111111");
+				this.$router.push({
+					name: "ProductDetails",       
+					query: {         //参数携带方式
+					  brand: shoppingbrand
+					}
+				})
+			}
 		}
 	}
 </script>
