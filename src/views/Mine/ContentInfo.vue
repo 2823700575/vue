@@ -1,18 +1,25 @@
 <template>
 	<div class="aside">
-		<h4>订单中心</h4>
+		<Info></Info>
+		<TabCom></TabCom>
 	</div>
 </template>
 
 <script>
 	export default {
-		
-		data() {
-			return {
-				
-			}
+		data:{
+			TabC:"Info"
 		},
-		methods: {
+		components: {
+			TabCom: () => import("./TabCom.vue"),
+			Info: () => import("./Info.vue")
+		},
+		data(){return {}},
+		methods:{
+			changeCom(e){
+				console.log(e.target,33333)
+				this.$store.dispatch('vuexC/changeCom',{table:e.target.innerHTML})
+			}
 		}
 		
 	}
