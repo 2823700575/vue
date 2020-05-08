@@ -24,7 +24,7 @@
 		<div class="serachright">
 			<div class="shoppingcar">
 				<img src="../../assets/购物车.png" alt="">
-				<span> 去购物车结算 <b>(0)</b></span>
+				<span> 去购物车结算 (<b>{{this.$store.state.vuexA.count}}</b>)</span>
 			</div>
 		</div>
 	</div>
