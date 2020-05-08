@@ -50,10 +50,6 @@ export default {
 		},
         methods: {
           handleSelect(key, keyPath) {
-<<<<<<< HEAD
-            
-			
-=======
 			  let flag=window.localStorage.getItem("tel")
 			  // console.log(typeof flag,flag)
 			  //如果登陆过，就展示用户信息，做不同的功能
@@ -79,7 +75,6 @@ export default {
 				  }
 			  }
             
->>>>>>> 47aefae6f794a9295cfd32a1374233c09d6d82b2
           }
         },
 		mounted(){
