@@ -29,8 +29,10 @@
 				.then((res)=>{
 					if(res.data.code==2000){
 					   alert(res.data.info)
-					   this.$router.push({path:"/"})
-					   
+					   // console.log((res.data.sta))
+					   window.localStorage.setItem("tel",res.data.sta)//设置前端缓存
+					   this.$router.push({path:"/"})//跳转到首页
+					   this.$store.commit("vuexB/mye",{tel:this.tel})//更改仓库展示用户信息
 					   
 					}
 					else{

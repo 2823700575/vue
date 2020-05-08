@@ -39,10 +39,25 @@ let ModuleA = {
 let ModuleB = {
 	namespaced: true,
 	state: {
-
+		login:"登陆",
+		register:"注册",
+		outlogin:"退出",
+		tel:""
 	},
 	mutations: {
-
+		mye(state,e){
+			state.login=e.tel
+			state.register=state.outlogin
+			state.tel=e.tel
+		},
+		myb(state){
+			state.login="登陆"
+			state.register="注册"
+		},
+		myc(state,obj){
+			state.login=obj.n
+			state.register=state.outlogin
+		}
 	},
 	actions: {
 

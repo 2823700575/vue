@@ -33,6 +33,13 @@
 		components:{
 			Login:()=>import("@/views/Loginregister/Login.vue"),
 			Register:()=>import("@/views/Loginregister/Register.vue")
+		},
+		mounted(){
+			// console.log(this.$route)
+			//点击注册跳到注册模块
+			if(this.$route.query.key==2){
+				this.loginregiste="Register"
+			}
 		}
 	}
 </script>
