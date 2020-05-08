@@ -7,16 +7,29 @@ let ModuleA = {
 	state: {
 		nav_erweima1:"http://0.js.al.okbuycdn.com/resources/images/v6/common/appqcode_2.png",
 		nav_erweima2:"http://0.js.al.okbuycdn.com/resources/images/v6/common/weixinqcode.png",
+		//商品详情
 		productShow_data:"",
-		productShow_sqldata:""
+		productShow_sqldata:"",
+		// 单件商品详情数据
+		singledshow_dataid:"",
+		singledshow_datalistname:"",
+		count:1
 	},
 	mutations: {
+		//首页：用户点击商品跳转详情页面的携带的参数
 		productShow_datafunction(state,obj){
 			state.productShow_data=obj.mybrand
 		},
+		//详情页： 获取用户点击商品的参数展示对应的数据
 		productShow_sqldatafun(state,obj){
 			state.productShow_sqldata=obj.dataarr
+		},
+		//单件详情页： 获取用户点击商品的参数展示对应的数据
+		singledshow_datafun(state,obj){
+			state.singledshow_dataid = obj.shoppingid;
+			state.singledshow_datalistname = obj.listname;
 		}
+		
 	},
 	actions: {
 

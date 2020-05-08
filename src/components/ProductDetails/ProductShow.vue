@@ -1,11 +1,11 @@
 <template>
 	<div class="proshow">
 		<div class="proshow_shopping">
-			<div class="zt_25_list" v-for="(item,index) in dataarr" :key="item.id">
-				<a href="#" title="阿迪达斯运动生活-跑步运动圆领短袖T恤-白色-EJ7080" target="_blank"><img :src="item.imgurl"
+			<div class="zt_25_list" v-for="(item,index) in dataarr" :key="item.id" @click="getshoppinginfo(item)">
+				<a href="#" title="阿迪达斯运动生活-跑步运动圆领短袖T恤-白色-EJ7080" ><img :src="item.imgurl"
 					 alt="阿迪达斯运动生活-跑步运动圆领短袖T恤-白色-EJ7080" class="zt_25_img"></a>
 				<span class="zt_25_logobg"><span class="BLB"><img :src="item.icon"></span></span>
-				<a href="#" class="zt_25_link" title="阿迪达斯运动生活-跑步运动圆领短袖T恤-白色-EJ7080" target="_blank">{{item.text}}</a>
+				<a href="#" class="zt_25_link" title="阿迪达斯运动生活-跑步运动圆领短袖T恤-白色-EJ7080" >{{item.text}}</a>
 				<span class="zt_25_link">¥<span id="17777750" class="zt_25_pr">{{item.nowprice}}</span><i><span>{{item.prevprice}}</span></i></span>
 			</div>
 		</div>
@@ -17,12 +17,14 @@
 	export default {
 		data(){
 			return {
-				dataarr:""
+				dataarr:"",
+				listname:""
 			}
 		},
 		mounted() {
 			// console.log(this.$store.state.vuexA.productShow_data)
 			let getmyserachdata = this.$store.state.vuexA.productShow_data; //通过仓库将父组件的中，传过来并赋值给变量
+			this.listname = getmyserachdata;
 			let url = "http://localhost:7001/productShow";
 			let obj = {
 				sqllistname: getmyserachdata
@@ -32,11 +34,23 @@
 					// console.log(result.data);
 					this.dataarr = result.data;
 				})
+		},
+		methods:{
+			// 获取商品所有信息作为参数
+			getshoppinginfo(infoobj){
+				// console.log(infoobj);
+				this.$router.push({
+					name:"SingleItem",
+					query:{shoppingid:infoobj.id,listname:this.listname}
+				})
+				// this.$store.commit("vuexA/singledshow_datafun",{shoppingid:infoobj.id,listname:this.listname})
+			}
 		}
 	}
 </script>
 
 <style scoped="scoped">
+	
 	.proshow{
 		display: flex;
 		justify-content: space-around;

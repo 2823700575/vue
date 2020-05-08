@@ -17,6 +17,12 @@ Vue.use(VueRouter)
   	component: ()=>import ("../views/ProductDetails.vue")
   },
   {
+  	 //单件商品详情页 
+  	path: '/singieItem',
+  	name: 'SingleItem',
+  	component: ()=>import ("../views/SingleItem.vue")
+  },
+  {
     path: '/cart',
     name: 'Cart',
     component: Cart,
