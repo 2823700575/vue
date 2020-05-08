@@ -13,7 +13,20 @@ let ModuleA = {
 		// 单件商品详情数据
 		singledshow_dataid:"",
 		singledshow_datalistname:"",
-		count:1
+		// 加入购物数量
+		count:0
+		// 购物车测试
+		// cartGoods:[{
+		// 	title: "Crocs卡骆驰女式伊莎贝拉露跟鞋",
+		// 	price: 100,
+		// 	img: "http://0.image.al.okbuycdn.com/nbn/w150_150_detect/static/e49f586fec00fad6879bb141cd3badb3.jpg",
+		// 	logo: "满减",
+		// 	text: "满2件减200元,还差1件享受此活动.去凑单>",
+		// 	size: "W5",
+		// 	num: 1,
+		// 	discount: 8,
+		// 	check: true
+		// }]
 	},
 	mutations: {
 		//首页：用户点击商品跳转详情页面的携带的参数
@@ -28,12 +41,31 @@ let ModuleA = {
 		singledshow_datafun(state,obj){
 			state.singledshow_dataid = obj.shoppingid;
 			state.singledshow_datalistname = obj.listname;
+		},
+		// 商品件数
+		getsinglecount(state,obj){
+			state.count = obj.singlecount;
 		}
-		
+		// 购物测试
+		// getcartGoodsfun(state,obj){
+		// 	state.cartGoods[0].title = obj.title ;
+		// 	state.cartGoods[0].price= obj.price;
+		// 	state.cartGoods[0].img= obj.img;
+		// 	state.cartGoods[0].logo= "满减";
+		// 	state.cartGoods[0].text= obj.text;
+		// 	state.cartGoods[0].size= obj.size;
+		// 	state.cartGoods[0].num= obj.num;
+		// 	state.cartGoods[0].discount= obj.discount;
+		// 	state.cartGoods[0].check=obj.check ;
+		// }
 	},
 	actions: {
-
+		
 	},
+	getters: {
+		
+	}
+	
 
 }
 let ModuleB = {
@@ -79,29 +111,20 @@ let ModuleC = {
 			num: 1,
 			discount: 8,
 			check: true
-		}, {
-			title: "Crocs卡骆驰女式伊莎贝拉露跟鞋",
-			price: 200,
-			img: "http://0.image.al.okbuycdn.com/nbn/w150_150_detect/static/e49f586fec00fad6879bb141cd3badb3.jpg",
-			logo: "满减",
-			text: "满2件减200元,还差1件享受此活动.去凑单>",
-			size: "W5",
-			num: 1,
-			discount: 4,
-			check: true
-		},{
-			title: "Crocs卡骆驰女式伊莎贝拉露跟鞋",
-			price: 150,
-			img: "http://0.image.al.okbuycdn.com/nbn/w150_150_detect/static/e49f586fec00fad6879bb141cd3badb3.jpg",
-			logo: "满减",
-			text: "满2件减200元,还差1件享受此活动.去凑单>",
-			size: "W5",
-			num: 1,
-			discount: 8,
-			check: true
 		}]
 	},
 	mutations: {
+		getcartGoodsfun(state,obj){
+			state.cartGoods[0].title = obj.title ;
+			state.cartGoods[0].price= obj.price;
+			state.cartGoods[0].img= obj.img;
+			state.cartGoods[0].logo= "满减";
+			state.cartGoods[0].text= obj.text;
+			state.cartGoods[0].size= obj.size;
+			state.cartGoods[0].num= obj.num;
+			state.cartGoods[0].discount= obj.discount;
+			state.cartGoods[0].check=obj.check ;
+		},
 		collect(state, obj) {
 			console.log(obj, 888)
 			state.collect.push(obj);

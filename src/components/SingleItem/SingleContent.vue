@@ -113,7 +113,26 @@
 			jump(){
 				this.$router.push({
 					name:"Cart"
+					// query:{
+					// 	info:this.showdata,
+					// 	count:this.count,
+					// 	size:this.size,
+					// 	check:true
+					// }
 				})
+				this.$store.commit("vuexA/getsinglecount",{singlecount:this.count})
+				this.$store.commit("vuexC/getcartGoodsfun",{
+					// list:this.showdata,
+					title: this.showdata.text,
+					price: this.showdata.nowprice,
+					img: this.showdata.imgurl,
+					logo: "满减",
+					text: this.showdata.youhuitext,
+					discount:this.showdata.discount,
+					num:this.count,
+					size:this.size,
+					check:true
+					})
 			}
 		}
 	}

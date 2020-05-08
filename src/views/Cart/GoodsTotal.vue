@@ -51,7 +51,7 @@
 						sum+=cartArr[i].num*cartArr[i].price;
 					}else{continue;}
 				}
-				return sum
+				return  Math.floor(sum)
 			},
 			finalPrice(){
 				let sum = 0;
@@ -61,7 +61,7 @@
 						sum+=cartArr[i].num*cartArr[i].price*cartArr[i].discount*0.1;
 					}else{continue;}
 				}
-				return sum
+				return Math.floor(sum)
 			},
 			del(){
 				let sum1 = 0;
@@ -74,7 +74,7 @@
 					}else{continue;}
 				}
 				let sum=sum2-sum1
-				return sum
+				return Math.floor(sum)
 			},
 			num(){
 				let sum = 0;
@@ -84,7 +84,7 @@
 						sum+=cartArr[i].num;
 					}else{continue;}
 				}
-				return sum
+				return Math.floor(sum)
 			},
 		},
 		

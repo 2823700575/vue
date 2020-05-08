@@ -27,7 +27,7 @@
 				showtime:""
 			}
 		},
-		created() {
+		mounted() {
 			let url = "http://localhost:7001/allshoppings";
 			axios.post(url)
 			.then((result)=>{

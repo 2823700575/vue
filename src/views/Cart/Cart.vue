@@ -22,6 +22,9 @@
 			return {
 			}
 		},
+		mounted() {
+			// console.log(this.$route.query)
+		}
 		
 	}
 </script>
