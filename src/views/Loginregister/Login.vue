@@ -1,49 +1,98 @@
 <template>
-	<div>
-		<div>
-			<p>账号登陆</p>
-			<p>扫码登陆</p>
+	<div class="loginbox">
+		<div class="div1">
+			<p class="p1" @click="zhanghao" :style="{color:mycolor}">账号登陆</p>
+			<p class="p2" @click="saoma" :style="{color:mycolor2}">扫码登陆</p>
 		</div>
-		<div>
-			<input type="tel" v-model="tel" /><br>
-			<input type="password" v-model="password" /><br>
-			<button @click="login">登陆</button>
+		<keep-alive>
+			<component :is="zhorsaoma"></component>
+		</keep-alive>
+		<div class="div3">
+			<span class="iconfont icon-QQ sp1"></span>
+			<span class="iconfont icon-weixin sp2"></span>
+			<span class="iconfont icon-zhifubao sp3"></span>
+			<span class="iconfont icon-qunfengxinlangweibo
+ sp4"></span>
+			<span class="iconfont icon-xingxing sp5"></span>
 		</div>
 	</div>
 </template>
 
 <script>
-	import axios from "axios"
 	export default{
 		data(){
 			return{
-				tel:"",
-				password:""
+				zhorsaoma:"Zhanghao",
+				mycolor:"#D70057",
+				mycolor2:"#000000"
 			}
 		},
+		components:{
+			Zhanghao:()=>import("./Zhanghao.vue"),
+			Saoma:()=>import("./Saoma.vue")
+		},
 		methods:{
-			login(){
-				let url="http://localhost:7001/login"
-				let params={tel:this.tel,password:this.password}
-				axios.post(url,params)
-				.then((res)=>{
-					if(res.data.code==2000){
-					   alert(res.data.info)
-					   // console.log((res.data.sta))
-					   window.localStorage.setItem("tel",res.data.sta)//设置前端缓存
-					   this.$router.push({path:"/"})//跳转到首页
-					   this.$store.commit("vuexB/mye",{tel:this.tel})//更改仓库展示用户信息
-					   
-					}
-					else{
-					    alert(res.data.info)
-					}
-					
-				})
+			zhanghao(){
+				this.zhorsaoma="Zhanghao",
+				this.mycolor2="#000000",
+				this.mycolor="#D70057"
+			},
+			saoma(){
+				this.zhorsaoma="Saoma",
+				this.mycolor2="#D70057",
+				this.mycolor="#000000"
 			}
 		}
 	}
 </script>
 
-<style>
+<style scoped="scoped">
+	.loginbox{
+		padding: 20px;
+		background-color: #FFFFFF;
+	}
+	.div1{
+		background-color: #FFFFFF;
+		display: flex;
+		justify-content: space-between;
+		margin-top: 20px;
+	}
+	.div1 p{
+		background-color: #FFFFFF;
+		font-weight: 800;
+		font-size: 24px;
+	}
+	.div1 .p1{
+		margin-left: 50px;
+	}
+	.div1 .p2{
+		margin-right: 50px;
+	}
+	.div3{
+		z-index: 100;
+		position: absolute;
+		top: 490px;
+	}
+	.div3 span{
+		font-size: 20px;
+	}
+	.div3 .sp1{
+		color: #00AAEF;
+	}
+	.div3 .sp2{
+		color: #22D121;
+		margin-left: 30px;
+	}
+	.div3 .sp3{
+		color: #00AAEF;
+		margin-left: 30px;
+	}
+	.div3 .sp4{
+		color: #E63B53;
+		margin-left: 30px;
+	}
+	.div3 .sp5{
+		color: #E63B53;
+		margin-left: 30px;
+	}
 </style>

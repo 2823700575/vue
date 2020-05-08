@@ -37,7 +37,15 @@ Vue.use(VueRouter)
   },{
     path: '/mine',
     name: 'Mine',
-    component: Mine
+    component: Mine,
+	beforeEnter(to,form,next){//局部导航守卫
+		let flag=window.localStorage.getItem("tel")
+		if(flag=="sussessful"){
+			next()
+		}else{
+			next("/login")
+		}
+	}
   },
   {
     path: '/login',

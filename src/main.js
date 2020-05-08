@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import ElementUI from 'element-ui';  //引入组件库
 import 'element-ui/lib/theme-chalk/index.css'; //全局css样式
+import '@/assets/iconfont/iconfont.css'	//引入第三方图标
 import axios from 'axios'
 axios.defaults.withCredentials = true//解决后端其它接口访问不到session的问题
 
