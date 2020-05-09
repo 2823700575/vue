@@ -125,26 +125,39 @@ let ModuleC = {
 			state.cartGoods[0].discount= obj.discount;
 			state.cartGoods[0].check=obj.check ;
 		},
+		//收藏商品
 		collect(state, obj) {
 			console.log(obj, 888)
 			state.collect.push(obj);
 			state.collect = state.collect
 		},
+		//删除商品
 		delect(state, obj) {
 			state.cartGoods.splice(obj.position,1)
 			state.cartGoods = state.cartGoods
 			console.log(state.cartGoods, 899)
 		},
+		//改变check的值
 		delectCheck(state, obj) {
 			state.cartGoods = obj.arr
 			console.log(state.cartGoods, 888)
-		}
+		},
+		//选择全部
+		checkAll(state, obj) {
+			state.cartGoods.forEach(item=>{
+				item.check=obj.check
+			})
+			state.cartGoods=state.cartGoods;
+			console.log(state.cartGoods, 666)
+		},
+		//从数据库中获取已经加入购物车的商品信息，存入仓库
+		changeCart(state, obj) {
+			state.cartGoods=obj.cartInfo;
+			console.log(state.cartGoods, 666)
+		},
 	},
 	actions: {
-		// increment (state,obj) {
-		// 	let collectArr=state.collect.push(obj);
-		// 	state.commit('increment',{newArr:collectArr})    
-		// }
+		
 	},
 	getters: {
 		sum(state) {
