@@ -62,7 +62,7 @@ export default {
 				  	axios.get(url)
 				  	.then((res)=>{
 				  		if(res.data.code==2001){
-							window.localStorage.setItem("tel",null)
+							window.localStorage.setItem("tel",null)//取消前端缓存
 							this.$store.commit("vuexB/myb")
 							alert("退出成功")
 						}
