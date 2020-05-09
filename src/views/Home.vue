@@ -10,8 +10,6 @@
 	<Homeicon></Homeicon>
 	<!-- 展示商品 -->
 	<ShoppingShow></ShoppingShow>
-	<!-- 底部信息 -->
-	<BottomInfo></BottomInfo>
   </div>
 </template>
 
@@ -29,5 +27,5 @@ export default {
 }
 </script>
 <style>
-
+	
 </style>

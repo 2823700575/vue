@@ -1,6 +1,6 @@
 <template>
-	<div class="bottom">
-		<div class="buttom_div">
+	<div class="mybottom">
+		<div class="bottom_div">
 			<div class="button_icon">
 				<div>
 					<img src="http://0.js.al.okbuycdn.com/resources/images/v6/common/code_client.png" alt="">
@@ -51,14 +51,15 @@
 </script>
 
 <style >
-	.bottom{
+	.mybottom{
+		width: 100%;
 		border-bottom:2px solid #333333;
 		border-top:2px solid #333333;
-		position: relative;
+		/* position: relative;
 		left: 0;
-		bottom: -760px;
+		bottom: -760px; */
 	}
-	.buttom_div{
+	.bottom_div{
 		height: 200px;
 		width: 100%;
 		display: flex;

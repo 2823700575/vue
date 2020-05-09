@@ -14,7 +14,8 @@
 				</div>
 			</a>
 		</div>
-		
+		<!-- 底部信息 -->
+		<BottomInfo></BottomInfo>
 	</div>
 </template>
 
@@ -45,6 +46,9 @@
 					}
 				})
 			}
+		},
+		components: {
+			"BottomInfo":()=> import("./BottomInfo.vue")
 		}
 	}
 </script>
