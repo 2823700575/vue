@@ -29,6 +29,7 @@
 		<el-menu-item index="7-2"><a href=""> 在线咨询时效通知</a></el-menu-item>
 		<el-menu-item index="7-3"><a href=""> 客服中心即将取消电话咨询服务</a></el-menu-item>
 	  </el-submenu>
+	  <el-menu-item index="8">个人中心</el-menu-item>
 	</el-menu>
   </div>
 </template>
@@ -73,6 +74,12 @@ export default {
 				  }else if(key==2){
 				  	this.$router.push({path:"/login",query:{key:key}})//params传参页面刷新数据就不在了
 				  }
+			  }
+			  
+			  if(key==8){
+				  this.$router.push({
+					  name:"Mine"
+				  })
 			  }
             
           }
