@@ -134,7 +134,8 @@ export default {
 		overflow: hidden;
 		text-overflow:ellipsis;
 		white-space: nowrap;
-		background-color: white;
+		/* background-color: white; */
+		/* background-color: #F2F2F2; */
 	}
 	/* 二维码 */
 	.el-menu--horizontal .el-menu .el-menu-item, .el-menu--horizontal .el-menu .el-submenu__title {

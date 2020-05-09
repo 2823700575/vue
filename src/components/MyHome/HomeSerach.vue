@@ -43,7 +43,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.serach {
 		width: 100%;
 		height: 110px;
@@ -74,7 +74,6 @@
 	.shoppingcar span {
 		height: 32px;
 		width: 175px;
-		background: #fff;
 		display: block;
 		line-height: 28px;
 		text-align: center;
@@ -89,6 +88,9 @@
 	    color: #888;
 	    margin-right: 10px;
 		text-decoration: none;
+	}
+	.hotWords, span {
+	   background-color: #F2F2F2;
 	}
 	.serachright{
 		margin-top: 30px;

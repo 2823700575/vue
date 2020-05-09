@@ -82,7 +82,7 @@
 	}
 </script>
 
-<style>
+<style scoped="scoped">
 	.goodsbox {
 		width: 100%;
 		height: 180px;

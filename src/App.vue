@@ -17,6 +17,6 @@
 	*{
 		padding: 0;
 		margin: 0;
-		background-color: #F2F2F2;
+		/* background-color: #F2F2F2; */
 	}
 </style>
