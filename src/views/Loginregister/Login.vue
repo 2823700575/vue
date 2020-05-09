@@ -5,7 +5,7 @@
 			<p class="p2" @click="saoma" :style="{color:mycolor2}">扫码登陆</p>
 		</div>
 		<keep-alive>
-			<component :is="zhorsaoma"></component>
+			<component :is="zhorsaoma" @myforget="myforget"></component>
 		</keep-alive>
 		<div class="div3">
 			<span class="iconfont icon-QQ sp1"></span>
@@ -41,6 +41,9 @@
 				this.zhorsaoma="Saoma",
 				this.mycolor2="#D70057",
 				this.mycolor="#000000"
+			},
+			myforget(){
+				this.$emit("myforget2")
 			}
 		}
 	}

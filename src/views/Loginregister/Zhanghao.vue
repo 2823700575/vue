@@ -3,7 +3,7 @@
 		<input type="tel" v-model="tel" placeholder="已验证用户名"/><br>
 		<input type="password" v-model="password" placeholder="密码"/><br>
 		<button @click="login" class="login">登陆</button>
-		<p class="p3">忘记密码？</p>
+		<p class="p3" @click="forget">忘记密码？</p>
 	</div>
 </template>
 
@@ -35,6 +35,9 @@
 					}
 					
 				})
+			},
+			forget(){
+				this.$emit("myforget")
 			}
 		}
 	}
@@ -71,5 +74,8 @@
 		left: 260px;
 		color: #B0B0B0;
 		font-size: 12px;
+	}
+	.div2 .p3:hover{
+		cursor: pointer;
 	}
 </style>

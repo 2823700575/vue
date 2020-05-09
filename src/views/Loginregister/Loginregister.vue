@@ -26,7 +26,7 @@
 		</div>
 		<div class="lrbox">
 		<keep-alive>
-			<component :is="loginregiste" @myclick="myclick"></component>
+			<component :is="loginregiste" @myclick="myclick" @myforget2="myforget2" @myupd="myupd"></component>
 		</keep-alive>
 		<div class="btm">
 			<div class="btntwo">
@@ -57,11 +57,18 @@
 			},
 			fanhui(){
 				this.$router.push({path:"/"})
+			},
+			myforget2(){
+				this.loginregiste="Fundpassword"
+			},
+			myupd(){
+				this.loginregiste="Login"
 			}
 		},
 		components:{
 			Login:()=>import("@/views/Loginregister/Login.vue"),
-			Register:()=>import("@/views/Loginregister/Register.vue")
+			Register:()=>import("@/views/Loginregister/Register.vue"),
+			Fundpassword:()=>import("@/views/Loginregister/Fundpassword.vue")
 		},
 		mounted(){
 			// console.log(this.$route)
