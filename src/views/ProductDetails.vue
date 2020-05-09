@@ -5,7 +5,7 @@
 		<!-- 搜索框 -->
 		<HomeSerach></HomeSerach>
 		<!-- 轮播 -->
-		<HomeCarousel></HomeCarousel>
+		<ProductNav></ProductNav>
 		<!-- 展示商品 -->
 		<ProductShow></ProductShow>
 		<BottomInfo></BottomInfo>
@@ -22,7 +22,7 @@
 		components: {
 			"HomeNav": () => import("../components/MyHome/HomeNav.vue"),
 			"HomeSerach": () => import("../components/MyHome/HomeSerach.vue"),
-			"HomeCarousel": () => import("../components/ProductDetails/ProductNav.vue"),
+			"ProductNav": () => import("../components/ProductDetails/ProductNav.vue"),
 			"ProductShow": () => import("../components/ProductDetails/ProductShow.vue"),
 			"BottomInfo": () => import("../components/ProductDetails/BottomInfo.vue"),
 		},

@@ -30,6 +30,11 @@
 		methods: {
 		  handleSelect(key, keyPath) {
 		    console.log(key, keyPath);
+			if(key == 1){
+				this.$router.push({
+					name:"Home"
+				})
+			}
 		  }
 		}
 		

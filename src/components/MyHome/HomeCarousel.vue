@@ -99,14 +99,16 @@
 	.el-carousel__item:nth-child(2n+1) {
 		background-color: orangered;
 	}
-	
+
 	/* 运动生活hover */
 	.sportslife {
 		position: relative;
 	}
+
 	.sportslife:hover .isshow {
 		display: block;
 	}
+
 	.isshow {
 		display: none;
 		position: absolute;
@@ -117,19 +119,20 @@
 		background-color: white;
 		color: black;
 	}
+
 	.isshow .allshoes[data-v-37b94ae3] {
-	    display: flex;
-	    justify-content: space-around;
+		display: flex;
+		justify-content: space-around;
 		flex-wrap: wrap;
 	}
-	.isshow .allshoes a{
+
+	.isshow .allshoes a {
 		text-decoration: none;
 		font-size: 14px;
 		margin: 10px;
 	}
-	.isshow .allshoes a:hover{
+
+	.isshow .allshoes a:hover {
 		color: orangered;
 	}
-	
-	
 </style>
