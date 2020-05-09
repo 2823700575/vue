@@ -65,6 +65,7 @@ export default {
 							window.localStorage.setItem("tel",null)//取消前端缓存
 							this.$store.commit("vuexB/myb")
 							alert("退出成功")
+							this.$router.push({path:"/"})
 						}
 				  	})
 				  }
