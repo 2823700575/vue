@@ -101,17 +101,7 @@ let ModuleC = {
 		count: 0,
 		price: 699,
 		collect: [],
-		cartGoods: [{
-			title: "Crocs卡骆驰女式伊莎贝拉露跟鞋",
-			price: 100,
-			img: "http://0.image.al.okbuycdn.com/nbn/w150_150_detect/static/e49f586fec00fad6879bb141cd3badb3.jpg",
-			logo: "满减",
-			text: "满2件减200元,还差1件享受此活动.去凑单>",
-			size: "W5",
-			num: 1,
-			discount: 8,
-			check: true
-		}]
+		cartGoods: []
 	},
 	mutations: {
 		getcartGoodsfun(state,obj){
@@ -143,15 +133,21 @@ let ModuleC = {
 			console.log(state.cartGoods, 888)
 		},
 		//选择全部
-		checkAll(state, obj) {
-			state.cartGoods.forEach(item=>{
+		checkAll(state,obj) {
+			state.cartGoods.forEach((item,index)=>{
 				item.check=obj.check
+				state.cartGoods[index].check=item.check;
 			})
 			state.cartGoods=state.cartGoods;
 			console.log(state.cartGoods, 666)
 		},
-		//从数据库中获取已经加入购物车的商品信息，存入仓库
+		// 从数据库中获取已经加入购物车的商品信息，存入仓库
 		changeCart(state, obj) {
+			console.log(obj.cartInfo, 77)
+			obj.cartInfo.forEach(item=>{
+				item.check=true
+				item.logo= "满减"
+			})
 			state.cartGoods=obj.cartInfo;
 			console.log(state.cartGoods, 666)
 		},

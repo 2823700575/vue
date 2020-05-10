@@ -2,7 +2,7 @@
 	<div class="goodTitle">
 		<el-row>
 			<el-col :span="3">
-				<el-checkbox v-model="checkAll" checked="true" false-label="false" true-label="true"><span>全选</span></el-checkbox>
+				<el-checkbox  @change="checkall" :checked="check"><span>全选</span></el-checkbox>
 			</el-col>
 			<el-col :span="9"><span>商品名称</span></el-col>
 			<el-col :span="2"><span>单价</span></el-col>
@@ -18,11 +18,19 @@
 		data() {
 			return {
 				isIndeterminate: false,
-				checkAll: false,
+				check:true,
 				color: "#D70057"
 
 			}
 		},
+		methods:{
+			checkall() {
+				console.log(this.check, 123)
+				this.check = !this.check;
+				let goodsArr = this.$store.state.vuexC.cartGoods;
+				this.$store.commit('vuexC/checkAll', {check: this.check})
+			},
+		}
 	}
 </script>
 

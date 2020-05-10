@@ -2,29 +2,30 @@
 	<div class="goodsTotal">
 		<el-row class="goodsCheck">
 			<el-col :span="3">
-				<el-checkbox v-model="checkAll" checked="true" false-label="false" true-label="true" @click="checkall">全选</el-checkbox>
+				<el-checkbox @change="checkall" :checked="check">全选</el-checkbox>
 			</el-col>
 			<el-col :span="2" class="delect">
 				<span @click="delect">删除所选商品</span>
 			</el-col>
-			<el-col :span="7">
-				<span>商品数量: <span class="color">{{num}}</span></span>
+			<el-col :span="5">
+				<span>商品数量: <span class="color">{{count}}</span></span>
 			</el-col>
-			<el-col :span="2"><span>商品金额:<span class="color">￥{{total}}</span></span></el-col>
-			<el-col :span="2">
+			<el-col :span="3"><span>商品金额:<span class="color">￥{{total}}</span></span></el-col>
+			<el-col :span="3">
 				<span>活动优惠：<span class="color">{{del}}</span></span>
 			</el-col>
-			<el-col :span="5"><span>合计(不含运费)：<span class="color sizes">￥{{finalPrice}}</span></span></el-col>
+			<el-col :span="5"><span>合计(不含运费)：<span class="color sizes">￥{{finalnowprice}}</span></span></el-col>
 			<el-col :span="3"  class="submit_bg"><span @click="open">去结算</span></el-col>
 		</el-row>
 	</div>
 </template>
 
 <script>
+	import axios from "axios"
 	export default {
 		data() {
 			return {
-				checkAll:"",
+				check:true,
 			}
 		},
 		methods:{
@@ -42,8 +43,10 @@
 				console.log(this.$store.state.vuexC.cartGoods,444)
 			},
 			checkall() {
+				console.log(this.check, 123)
+				this.check = !this.check;
 				let goodsArr = this.$store.state.vuexC.cartGoods;
-				this.$store.commit('vuexC/checkAll',{check:true})
+				this.$store.commit('vuexC/checkAll', {check: this.check})
 			},
 			open() {
 				console.log(8888888)
@@ -63,7 +66,7 @@
 							goodsIdArr.push(item.id)
 						}
 					  });
-					this.axios.get(url,{buygoods:goodsIdArr})
+					axios.get(url,{buygoods:goodsIdArr})
 					.then((result)=>{console.log(result),4444})
 				}).catch(() => {
 					this.$message({
@@ -79,17 +82,17 @@
 				let cartArr=this.$store.state.vuexC.cartGoods;
 				for (let i = 0; i < cartArr.length; i++) {
 					if(cartArr[i].check){
-						sum+=cartArr[i].num*cartArr[i].price;
+						sum+=cartArr[i].count*cartArr[i].nowprice;
 					}else{continue;}
 				}
 				return  Math.floor(sum)
 			},
-			finalPrice(){
+			finalnowprice(){
 				let sum = 0;
 				let cartArr=this.$store.state.vuexC.cartGoods;
 				for (let i = 0; i < cartArr.length; i++) {
 					if(cartArr[i].check){
-						sum+=cartArr[i].num*cartArr[i].price*cartArr[i].discount*0.1;
+						sum+=cartArr[i].count*cartArr[i].nowprice*cartArr[i].discount*0.1;
 					}else{continue;}
 				}
 				return Math.floor(sum)
@@ -100,19 +103,19 @@
 				let cartArr=this.$store.state.vuexC.cartGoods;
 				for (let i = 0; i < cartArr.length; i++) {
 					if(cartArr[i].check){
-						sum1+=cartArr[i].num*cartArr[i].price*cartArr[i].discount*0.1;
-						sum2+=cartArr[i].num*cartArr[i].price;
+						sum1+=cartArr[i].count*cartArr[i].nowprice*cartArr[i].discount*0.1;
+						sum2+=cartArr[i].count*cartArr[i].nowprice;
 					}else{continue;}
 				}
 				let sum=sum2-sum1
 				return Math.floor(sum)
 			},
-			num(){
+			count(){
 				let sum = 0;
 				let cartArr=this.$store.state.vuexC.cartGoods;
 				for (let i = 0; i < cartArr.length; i++) {
 					if(cartArr[i].check){
-						sum+=cartArr[i].num;
+						sum+=cartArr[i].count;
 					}else{continue;}
 				}
 				return Math.floor(sum)

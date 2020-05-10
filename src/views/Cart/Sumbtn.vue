@@ -1,7 +1,7 @@
 <template>
 	<div class="newsbox">
 		<span @click="del">-</span>
-		<span class="num">{{this.$store.state.vuexC.cartGoods[index].num}}</span>
+		<span class="count">{{this.$store.state.vuexC.cartGoods[index].count}}</span>
 		<span @click="add">+</span>
 	</div>
 </template>
@@ -16,12 +16,12 @@
 		},
 		methods: {
 			add() {
-				this.$store.state.vuexC.cartGoods[this.index].num++;
+				this.$store.state.vuexC.cartGoods[this.index].count++;
 			},
 			del() {
-				this.$store.state.vuexC.cartGoods[this.index].num--;
-				if (this.$store.state.vuexC.cartGoods[this.index].num <= 0) {
-					this.$store.state.vuexC.cartGoods[this.index].num = 0
+				this.$store.state.vuexC.cartGoods[this.index].count--;
+				if (this.$store.state.vuexC.cartGoods[this.index].count <= 0) {
+					this.$store.state.vuexC.cartGoods[this.index].count = 0
 				}
 			}
 		}
@@ -38,7 +38,7 @@
 		margin-top: 32px;
 		background-color: #FFFFFF;
 	}
-	.num {
+	.count {
 		width: 70px;
 		border-top: 1px solid #E8E8E8;
 		border-bottom: 1px solid #E8E8E8;

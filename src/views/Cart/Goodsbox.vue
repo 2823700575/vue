@@ -5,22 +5,22 @@
 				<span class="promotion"></span>
 				<div class="cartlist-active">
 					<span>{{data.logo}}</span>
-					<span>{{data.text}}</span>
+					<span>{{data.youhuitext}}</span>
 				</div>
 			</el-col>
 		</el-row>
 		<el-row class="cartlist_info">
 			<el-col :span="3">
-				<el-checkbox @change="checkedChange" :checked="true">选择</el-checkbox>
+				<el-checkbox v-model="data.check" :checked="data.check">选择</el-checkbox>
 			</el-col>
 			<el-col :span="9" class="goods">
-				<img class="img" :src="data.img" alt="sf">
+				<img class="img" :src="data.imgurl" alt="sf">
 				<div class="goods_text">
-					<span>{{data.title}}</span>
+					<span>{{data.text}}</span>
 					<span>{{data.size}}</span>
 				</div>
 			</el-col>
-			<el-col :span="2"><span>￥{{data.price}}</span></el-col>
+			<el-col :span="2"><span>￥{{data.nowprice}}</span></el-col>
 			<el-col :span="5">
 				<Sumbtn class="sum_btn" :index="index"></Sumbtn>
 			</el-col>
@@ -33,6 +33,7 @@
 
 <script>
 	import Sumbtn from './Sumbtn.vue'
+	import axios from "axios"
 	export default {
 		props: ["data", "index"],
 		data() {
@@ -71,7 +72,7 @@
 			sum() {
 				let sum = 0;
 				console.log(this.checked, 333)
-				sum = this.data.num * this.data.price;
+				sum = this.data.count * this.data.nowprice;
 				return sum
 			}
 

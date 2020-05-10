@@ -120,6 +120,11 @@
 					// 	check:true
 					// }
 				})
+				let url = 'http://localhost:7001/setcart'
+				axios.get(url,{params:{id: this.id,size: this.size}})
+				.then((result) => {
+					console.log(result, 88)
+				})
 				this.$store.commit("vuexA/getsinglecount",{singlecount:this.count})
 				this.$store.commit("vuexC/getcartGoodsfun",{
 					// list:this.showdata,
